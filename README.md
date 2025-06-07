@@ -19,14 +19,14 @@ Detect ambulances in a multi-vehicle traffic stream using object detection and i
 
 
 ## 🚩 Versions of Tech Stack used:
-- TensorFlow 2.10.1
-- Numpy 1.25.2
+- TensorFlow             2.10.1
+- Numpy                  1.25.2
 - GPU NVidia GeForce RTX 3050
-- CUDA 11.2
-- CUDNN 8.1
-- Anaconda environment
-- Python 3.9
-- protoc 3.19.6
+- CUDA                   11.2
+- CUDNN                  8.1
+- Anaconda               24.11.3
+- Python                 3.9
+- protoc                 3.19.6
 
 
 ## 📝 Project Documentation
