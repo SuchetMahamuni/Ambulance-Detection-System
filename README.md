@@ -5,6 +5,10 @@ This project uses TensorFlow and OpenCV to detect ambulances in real-time from a
 ## 🎯 Objective
 Detect ambulances in a multi-vehicle traffic stream using object detection and identify the direction of arrival.
 
+## ⚠️ Disclaimer
+This project is intended for showcase and educational purposes only. Full code is not licensed for reuse or commercial distribution without permission.
+
+
 ## 🧠 Tech Stack
 - Python
 - TensorFlow
@@ -15,13 +19,12 @@ Detect ambulances in a multi-vehicle traffic stream using object detection and i
 See `details.txt` for setup, component versions, and full build steps.
 
 ## 📷 Screenshots
-![Sample](screenshots/sample_detection.png)
+![Google drive link for the images of the working](https://drive.google.com/drive/folders/1Kf5Re7FlzpY_HJdUmAbEWYcWXfmp40hk?usp=sharing)
 
 ## 🎥 Demo
-[Add video link if hosted on YouTube or Drive]
+[Google Drive link for the demo video](https://drive.google.com/drive/folders/1fdlpNBljcD5pSlLCAA7x7f6dbpUjROHg?usp=sharing)
 
 # 🏷️ Keywords
 `machine learning`, `object detection`, `tensorflow`, `ambulance`, `real-time`, `computer vision`
 
 
-⚠️ This project is intended for showcase and educational purposes only. Full code is not licensed for reuse or commercial distribution without permission.
