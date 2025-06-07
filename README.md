@@ -2,12 +2,13 @@
 TensorFlow-based real-time ambulance detection system using Python and OpenCV
 This project uses TensorFlow and OpenCV to detect ambulances in real-time from a live video feed. It was built to support smart traffic control for emergency vehicles.
 
-## 🎯 Objective
-Detect ambulances in a multi-vehicle traffic stream using object detection and identify the direction of arrival.
 
 ## ⚠️ Disclaimer
 This project is intended for showcase and educational purposes only. Full code is not licensed for reuse or commercial distribution without permission.
 
+
+## 🎯 Objective
+Detect ambulances in a multi-vehicle traffic stream using object detection and identify the direction of arrival.
 
 ## 🧠 Tech Stack
 - Python
