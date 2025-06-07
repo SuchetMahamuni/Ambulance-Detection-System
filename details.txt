@@ -1,4 +1,4 @@
-What versions I had:
+Versions of tools I had:
 TensorFlow 2.10.1
 Numpy 1.25.2
 GPU NVidia GeForce RTX 3050
