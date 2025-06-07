@@ -61,7 +61,12 @@ Steps:
 			pre-trained-models	<-- all pretrained models to train with custom dataset
 				centernet_mobilenetv2fpn_512x512_coco17_kpts
 				SSD_MobileNet_V2_FPNLite_320x320
+			scripts			<-- The .py scripts are to be transferred to the training/ directory before use to avoid errors 
+				exporter_main_v2.py
+				generate_tfrecord.py
+				model_main_tf2.py
 		usage.py
+		usage2.py			<-- Using webcam input from mobile with the help of android app 'IP Webcam'
 
 14. Created train.record and test.record file using the following commands:
 	python scripts\generate_tfrecord.py -x images/train -l annotations/label_map.pbtxt -o annotations/train.record
