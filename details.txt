@@ -1,0 +1,82 @@
+What versions I had:
+TensorFlow 2.10.1
+Numpy 1.25.2
+GPU NVidia GeForce RTX 3050
+CUDA 11.2
+CUDNN 8.1
+Anaconda environment
+Python 3.9
+protoc 3.19.6
+
+Reference links:
+Compatibility Table link:		https://www.tensorflow.org/install/source_windows
+Installation guidance: 			https://www.youtube.com/watch?v=QUjtDIalh0k
+Model cloning video  : 			https://www.youtube.com/watch?v=KWD20XBFYD4&list=PLZoTAELRMXVNvTfHyJxPRcQkpV8ubBwHo&index=3
+Object detection model garden:		https://github.com/tensorflow/models
+Protoc download (win64):		https://github.com/protocolbuffers/protobuf/releases
+Complete Object Detection installation-
+-guide:					https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html
+Tensorflow pretrained model zoo:	https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md
+CenterNet FPN model : 			http://download.tensorflow.org/models/object_detection/tf2/20210210/centernet_mobilenetv2fpn_512x512_coco17_kpts.tar.gz
+Help with Centernet model pipeline :	https://stackoverflow.com/questions/66457432/error-indices0-0-not-in-0-0-when-training-centernet-mobilenetv2-fpn-512x
+
+Steps:
+1.  Installed anaconda, CUDA setup from the official site and cuDNN from the developer's page, protoc from tensorflow site.
+2.  Set up a virtual environment "objdet" using the following command: conda create -n objdet python=3.9
+    To activate the virtual environment (In Anaconda Prompt): 	      conda activate objdet
+3.  Installed the CUDA and CUDNN toolkits using the following command: conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
+4.  Installed Tensorflow==2.10.1 for my GPU version compatibiility
+    (Nvidia GeForce RTx 3050) using the following command	    : python -m pip install "tensorflow<2.11"
+5.  Had to deprecate Numpy due to version incompatibility	    : pip install numpy==1.25.2
+6.  Verified installation by using the following commands:
+	python
+	import tensorflow as tf
+	tf.config.list_physical_devices("GPU")
+	tf.test.is_gpu_available()		# Should return true if you have a GPU
+
+#TensorFlow installation completed
+
+7.  Cloned the entire github repository of tensorflow garden	    : git clone https://github.com/tensorflow/models.git
+8.  Installed protoc, copied 'bin' and 'include' folders to C:\protoc\ directory, added directory \bin to path.
+9.  Compiled protobuf library using the following command 
+    in models/research directory				    : protoc object_detection/protos/*.proto --python_out=.
+10. Installed COCO API using the following commands		    : 
+	pip install cython
+	pip install git+https://github.com/philferriere/cocoapi.git#subdirectory=PythonAPI
+11. Downloaded a pretrained model from model zoo namely		    : SSD MobileNet V2 FPNLite 320x320
+								    : centernet mobilenetv2fpn 512x512 coco17 kpts
+12. Extracted content into models/research/object_detection
+13. Structured my folder accordingly:
+	project
+		models
+		details.txt (this file)
+		training
+			annotations
+				label_map.pbtxt
+			images
+				test 		<-- contains 20% image files and xml files 
+				train 		<-- contains 80% image files and xml files
+			models			<-- empty
+			exported-models		<-- empty ( later exported model is put in here )
+			pre-trained-models	<-- all pretrained models to train with custom dataset
+				centernet_mobilenetv2fpn_512x512_coco17_kpts
+				SSD_MobileNet_V2_FPNLite_320x320
+		usage.py
+
+14. Created train.record and test.record file using the following commands:
+	python scripts\generate_tfrecord.py -x images/train -l annotations/label_map.pbtxt -o annotations/train.record
+	python scripts\generate_tfrecord.py -x images/test -l annotations/label_map.pbtxt -o annotations/test.record
+15. Configured the copied pipeline.config file at models/Model2_od/pipeline.config
+16. Copied the models/research/object_detection/model_main_tf2.py into training/ directory.
+17. Opened Anaconda prompt (Activated the virtual environment), in the traning/ directory, and ran the following command to train the model:
+	python model_main_tf2.py --model_dir=models/Model2_od --pipeline_config_path=models/Model2_od/pipeline.config
+	tensorboard --logdir=models/my_ssd_resnet50_v1_fpn 		(in another anaconda prompt)
+
+18. Tested the trained model by using the following command:
+	python model_main_tf2.py --model_dir=models/Model2_od --pipeline_config_path=models/Model2_od/pipeline.config --checkpoint_dir=models/Model2_od
+
+19: Exported the model after exporting it using the following command:
+	python exporter_main_v2.py --input_type image_tensor --pipeline_config_path .\models\Model2_od\pipeline.config --trained_checkpoint_dir .\models\Model2_od\ --output_directory .\exported-models\tfod_model
+
+20. Prepared an inference script that used the exported model in the project/ directory.
+21. Went a step further and used 'IP Webcam' mobile application to take streaming camera input and applied in usage2.py.
