@@ -24,4 +24,4 @@ See `details.txt` for setup, component versions, and full build steps.
 `machine learning`, `object detection`, `tensorflow`, `ambulance`, `real-time`, `computer vision`
 
 
-# ⚠️ This project is intended for showcase and educational purposes only. Full code is not licensed for reuse or commercial distribution without permission.
+⚠️ This project is intended for showcase and educational purposes only. Full code is not licensed for reuse or commercial distribution without permission.
