@@ -20,5 +20,8 @@ See `details.txt` for setup, component versions, and full build steps.
 ## 🎥 Demo
 [Add video link if hosted on YouTube or Drive]
 
-## 🏷️ Keywords
+# 🏷️ Keywords
 `machine learning`, `object detection`, `tensorflow`, `ambulance`, `real-time`, `computer vision`
+
+
+# ⚠️ This project is intended for showcase and educational purposes only. Full code is not licensed for reuse or commercial distribution without permission.
