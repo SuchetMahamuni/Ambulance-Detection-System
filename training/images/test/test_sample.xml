@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<annotation>
+   <folder>images</folder>
+   <filename>ambulance (174).jpg</filename>
+   <size>
+      <width>3000</width>
+      <height>4000</height>
+      <depth>3</depth>
+   </size>
+   <object>
+      <name>ambulance</name>
+      <bndbox>
+         <xmin>1456</xmin>
+         <ymin>1908</ymin>
+         <xmax>1698</xmax>
+         <ymax>2378</ymax>
+      </bndbox>
+   </object>
+</annotation>

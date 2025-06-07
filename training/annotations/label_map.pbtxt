@@ -1,0 +1,13 @@
+item {
+  id: 1
+  name: 'ambulance'
+  display_name: "Ambulance"
+
+}
+
+item {
+  id: 2
+  name: 'non_ambulance'
+  display_name: "Not Ambulance"
+
+}
